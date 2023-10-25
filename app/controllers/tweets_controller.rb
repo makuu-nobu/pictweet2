@@ -30,7 +30,9 @@ class TweetsController < ApplicationController
         redirect_to root_path        
     end
 
-    def show      
+    def show
+        @comment = Comment.new
+        @comments = @tweet.comments.includes(:user)
     end
 
     private
